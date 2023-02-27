@@ -1,0 +1,13 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "*": ["node_modules/*", "src/types/*"]
+      },
+      "target": "es5",
+      "lib": ["dom", "es2015"],
+      "types": ["cypress"]
+    },
+    "include": ["**/*.ts", "cypress/support/e2e.js", "cypress/support/commands.js"]
+  }
+  
