@@ -1,15 +1,19 @@
-// importowanie potrzebnych bibliotek i modułów
-
 import { LoginPage } from '../../PageObjects/LoginPage';
-import { User, Users } from './model';
+import { User } from '../../support/types/users';
 
 describe('Login functionality', () => {
 
-  let user: User;
+  let user1: User;
+  let user2: User;
+  let user3: User;
+  let user4: User;
 
   before(() => {
     cy.fixture('credentials.json').then((users) => {
-      user = users.users[2];
+      user1 = users.users[0];
+      user2 = users.users[1];
+      user3 = users.users[2];
+      user4 = users.users[3];
     });
   });
 
@@ -18,9 +22,9 @@ describe('Login functionality', () => {
 
       loginPage.navigation();
 
-      loginPage.fillUsername().type(user.userName);
+      loginPage.fillUsername().type(user1.userName);
 
-      loginPage.fillPassword().type(user.password);
+      loginPage.fillPassword().type(user1.password);
 
       loginPage.submitLoginForm();
 
