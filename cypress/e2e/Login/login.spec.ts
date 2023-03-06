@@ -3,52 +3,63 @@ import { User } from '../../support/types/users';
 
 describe('Login functionality', () => {
 
-  let user1: User;
-  let user2: User;
-  let user3: User;
-  let user4: User;
+  let standard_user: User;
+  let locked_out_user: User;
+  let problem_user: User;
+  let performance_glitch_user: User;
+  let loginPage: LoginPage;
 
   before(() => {
-    cy.fixture('credentials.json').then((users) => {
-      user1 = users.users[0];
-      user2 = users.users[1];
-      user3 = users.users[2];
-      user4 = users.users[3];
+    cy.fixture('users.json').then((users) => {
+      standard_user = users.users[0];
+      locked_out_user = users.users[1];
+      problem_user = users.users[2];
+      performance_glitch_user = users.users[3];
     });
   });
 
-    it('Should log in with valid credentials', function () {
-      const loginPage = new LoginPage();
+  beforeEach(() => {
+    loginPage = new LoginPage();
+    loginPage.navigationLoginPage();
+  })
 
-      loginPage.navigation();
+  it('Should log in with valid credentials', () => {
+    loginPage.fillUsername().type(standard_user.userName);
 
-      loginPage.fillUsername().type(user1.userName);
+    loginPage.fillPassword().type(standard_user.password);
 
-      loginPage.fillPassword().type(user1.password);
+    loginPage.submitLoginForm();
 
-      loginPage.submitLoginForm();
+    cy.url().should('include', '/inventory.html');
 
-      // weryfikacja, czy użytkownik został zalogowany poprawnie
-      // cy.url().should('include', '/inventory.html');
-      // cy.get('.title').should('have.text', 'Products');
-    });
-
-    //   it('Should display error message with invalid credentials', () => {
-    //     // inicjalizacja obiektu strony logowania
-    //     const loginPage = new LoginPage();
-
-    //     // nawigacja do strony logowania
-    //     loginPage.navigation();
-
-    //     // wpisanie błędnego loginu i hasła
-    //     loginPage.fillUsername('invalid_user');
-    //     loginPage.fillPassword('invalid_password');
-
-    //     // kliknięcie przycisku logowania
-    //     loginPage.submitLoginForm();
-
-    //     // weryfikacja, czy wyświetlony został błąd logowania
-    //     cy.get('.error-message-container').should('be.visible');
-    //     cy.get('.error-message-container').should('have.text', 'Epic sadface: Username and password do not match any user in this service');
-      // });
+    cy.get('.title').should('have.text', 'Products');
   });
+
+  it('Should not be able to login with invalid credentials', () => {
+
+    loginPage.fillUsername().type('invalid-username')
+
+    loginPage.fillPassword().type('invalid-password')
+
+    loginPage.submitLoginForm();
+
+    cy.get('[data-test=error]')
+      .should('be.visible')
+      .and('have.text', 'Epic sadface: Username and password do not match any user in this service')
+  })
+
+  it('Should not be able to log in with locked out user account', () => {
+
+    loginPage.fillUsername().type(locked_out_user.userName);
+
+    loginPage.fillPassword().type(locked_out_user.password);
+
+    loginPage.submitLoginForm();
+
+    cy.get('h3')
+    .should('be.visible')
+    .and('have.text', 'Epic sadface: Sorry, this user has been locked out.');
+  });
+
+
+});

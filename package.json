@@ -2,7 +2,7 @@
   "name": "saucedemo",
   "version": "1.0.0",
   "description": "saucedemo automation tests",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "open": "npx cypress open",
     "test": "node_modules\\.bin\\cypress run --config pageLoadTimeout=100000",
@@ -25,6 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^18.14.4",
+    "cypress-v10-preserve-cookie": "^1.2.1",
     "ts-node": "^10.9.1"
   }
 }

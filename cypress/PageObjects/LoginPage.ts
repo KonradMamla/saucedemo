@@ -1,6 +1,5 @@
-export class LoginPage
-{
-    navigation() {
+export class LoginPage {
+    navigationLoginPage() {
         cy.visit('/', {
             failOnStatusCode: false
         })

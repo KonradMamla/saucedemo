@@ -1,9 +1,9 @@
 # Login Test Scenario:
 
 ### 1. Login functionality  
-Verify that the user is able to login with valid credentials.  
-Verify that the user is not able to login with invalid credentials.  
-Verify that the user is redirected to the correct page after successful login.  
++ Verify that the user is able to login with valid credentials.  
++ Verify that the user is not able to login with invalid credentials. 
++ Verify that user with locked out account is not able to login.
 ### 2. Sorting functionality  
 Verify that the items on the inventory page can be sorted by name, price, and rating.  
 Verify that the sorting is done correctly and the order of the items is updated accordingly.  
