@@ -1,54 +1,36 @@
 export class InventoryPage {
-  private inventoryList = () => cy.get('.inventory_list');
-  private inventoryItems = () => this.inventoryList().find('.inventory_item');
-  private cartBadge = () => cy.get('.fa-shopping-cart + .shopping_cart_badge');
-  private cartLink = () => cy.get('.shopping_cart_link');
-  private sortDropdown = () => cy.get('select[data-test="product_sort_container"]');
+
+  readonly productSortContainer = '.product_sort_container';
+  readonly inventoryItemName = '.inventory_item_name';
 
   public navigationInventoryPage() {
-    cy.visit('/inventory.html', { 
+    cy.visit('/inventory.html', {
       failOnStatusCode: false
   });
   }
 
-  public addItemToCart(itemName: string) {
-    this.inventoryItems()
-      .contains(itemName)
-      .parent('.inventory_item')
-      .find('button')
-      .click();
+  selectSortOption(option: string) {
+    cy.get(this.productSortContainer).select(option);
   }
 
-  public openCart() {
-    this.cartBadge().click();
-    this.cartLink().click();
+  getInventoryItemNames() {
+    return cy.get(this.inventoryItemName).then(($items) => {
+      return Array.from($items).map((el) => el.textContent.trim());
+    });
   }
 
-  public getCartBadgeValue() {
-    return this.cartBadge().invoke('text');
+  getProductPrices() {
+    return cy.get('.inventory_item_price');
   }
 
-  public sortByPriceLowToHigh() {
-    this.sortDropdown().select('lohi');
+  sortByPriceLowToHigh() {
+    cy.get('.product_sort_container').select('lohi');
   }
 
-  public sortByPriceHighToLow() {
-    this.sortDropdown().select('hilo');
+  sortByPriceHighToLow() {
+    cy.get('.product_sort_container').select('hilo');
   }
 
-  public sortByNameAtoZ() {
-    this.sortDropdown().select('az');
-  }
 
-  public sortByNameZtoA() {
-    this.sortDropdown().select('za');
-  }
 
-  public getItemNames(): Cypress.Chainable<string[]> {
-    return this.inventoryItems().find('.inventory_item_name').invoke('text');
-  }
-
-  public getItemPrices(): Cypress.Chainable<string[]> {
-    return this.inventoryItems().find('.inventory_item_price').invoke('text');
-  }
 }

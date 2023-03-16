@@ -1,27 +1,33 @@
 # Login Test Scenario:
 
 ### 1. Login functionality  
-+ Verify that the user is able to login with valid credentials.  
-+ Verify that the user is not able to login with invalid credentials. 
-+ Verify that user with locked out account is not able to login.
-### 2. Sorting functionality  
-Verify that the items on the inventory page can be sorted by name, price, and rating.  
-Verify that the sorting is done correctly and the order of the items is updated accordingly.  
-### 3. Filtering functionality  
-Verify that the user is able to filter the items by category.  
-Verify that the items displayed on the page are updated according to the selected category.  
-Verify that the user is able to reset the filters and see all items.  
-### 4. Cart functionality  
-Verify that the user is able to add items to the cart.  
-Verify that the user is able to view the items in the cart.    
-Verify that the user is able to remove items from the cart.  
-Verify that the user is able to checkout and complete the purchase.  
-### 5. Responsive design  
-Verify that the website is responsive and works correctly on different screen sizes.  
-Verify that the website is accessible and can be used by users with disabilities.  
-###6. Error handling  
-Verify that the user is shown an appropriate error message when an error occurs.  
-Verify that the error message disappears once the error has been resolved.  
-### 7. Performance testing   
-Verify that the website loads quickly and without any errors.  
-Verify that the website can handle a large number of users simultaneously without crashing or slowing down.  
++ Verify that a user can successfully log in with valid credentials.
++ Verify that a user cannot log in with invalid credentials.
+Verify that appropriate error messages are displayed for invalid credentials.
+Verify that a user can log out successfully.
+Verify that a user is redirected to the login page when logging out.
+### 2. Product:
+Verify that all products are displayed correctly on the home page.
++ Verify that the products display correctly when filtered by name and price.
+Verify that a user can navigate to individual product pages and view product details.
+Verify that a user can add products to their cart.
+Verify that a user can remove products from their cart.
+Verify that the cart reflects the correct products and quantities.
+### 3.  Checkout and purchasing:
+Verify that a user can navigate to the checkout page.
+Verify that the correct products and quantities are displayed on the checkout page.
+Verify that a user can enter their shipping information.
+Verify that a user can enter their payment information.
+Verify that a user can complete a purchase successfully.
+Verify that appropriate error messages are displayed if any information is missing or incorrect.
+Verify that a user can cancel a purchase and return to the home page.
+### 4. Accessibility and usability:
+Verify that the website is accessible and usable for users with disabilities.
+Verify that all website elements are clearly labeled and easy to understand.
+Verify that the website is responsive and displays correctly on different screen sizes.
+Verify that the website is compatible with different web browsers.
+### 5. Security:
+Verify that the website is secure and uses HTTPS encryption.
+Verify that user passwords are encrypted and stored securely.
+Verify that user sessions are properly managed and do not remain active after logout or inactivity.
+Verify that the website is protected against common security vulnerabilities such as SQL injection and cross-site scripting attacks.
