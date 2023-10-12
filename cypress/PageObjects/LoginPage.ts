@@ -17,5 +17,9 @@ export class LoginPage {
         return cy.get('#login-button').contains('Login').click();
     }
 
+    getErrorMessage() {
+        return cy.get('[data-test=error]');
+      }
+
 }
 
