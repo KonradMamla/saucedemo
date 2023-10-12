@@ -19,6 +19,11 @@
       "id": 4,
       "userName": "performance_glitch_user",
       "password": "secret_sauce"
+    },
+    {
+      "id": 5,
+      "userName": "invalid_username",
+      "password": "invalid_username_password"
     }
   ]
 }

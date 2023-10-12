@@ -4,43 +4,28 @@ import { User } from '../../support/types/users';
 describe('Inventory page', () => {
 
   let standard_user: User;
-  let locked_out_user: User;
-  let problem_user: User;
-  let performance_glitch_user: User;
-
   let inventoryPage: InventoryPage;
 
 
   beforeEach(() => {
     cy.fixture('users.json').then((users) => {
       standard_user = users.users[0];
-      locked_out_user = users.users[1];
-      problem_user = users.users[2];
-      performance_glitch_user = users.users[3];
-
-      // set user to login
       cy.loginByCookie(standard_user);
-
       inventoryPage = new InventoryPage();
-
-      // Visit inventory page
       inventoryPage.navigationInventoryPage();
-
     });
   });
 
   it('Should display products on the page', () => {
-
     cy.url().should('include', '/inventory.html');
     cy.get('.title').should('have.text', 'Products');
   });
 
   context('Sort products', () => {
-
     it('Should sort items by name in ascending order', () => {
       inventoryPage.selectSortOption('az');
       inventoryPage.getInventoryItemNames().then((names) => {
-        //names.slice() tworzy kopię oryginalnej tablicy names
+        //names.slice() creates a copy of the original 'names' array
         expect(names).to.deep.equal(names.slice().sort());
       });
     });
@@ -53,30 +38,24 @@ describe('Inventory page', () => {
     });
 
     it.only('Should sort items by price ascending (low to high)', () => {
-
       inventoryPage.sortByPriceLowToHigh();
-
-      // Pobranie listy cen produktów
+      //  Getting the list of product prices
       inventoryPage.getProductPrices().then(($prices) => {
-        // Konwersja do tablicy i usunięcie białych znaków z początku i końca każdej ceny
+        // Converting to an array and removing white spaces from the beginning and end of each price
         const prices = Array.from($prices).map((el) => el.textContent.trim());
-
-        // Konwersja cen na liczby i sprawdzenie, czy są posortowane rosnąco
+        // Converting prices to numbers and checking if they are sorted in ascending order
         const numericPrices = prices.map(parseFloat);
         expect(numericPrices).to.deep.equal(numericPrices.slice().sort());
-
       })
     });
 
       it.only('Should sort items by price descending order (high to low)', () => {
         inventoryPage.sortByPriceHighToLow();
-
-        // Pobranie listy cen produktów
+        //  Getting the list of product prices
         inventoryPage.getProductPrices().then(($prices) => {
-          // Konwersja do tablicy i usunięcie białych znaków z początku i końca każdej ceny
+          // Converting to an array and removing white spaces from the beginning and end of each price
           const prices = Array.from($prices).map((el) => el.textContent.trim());
-
-          // Konwersja cen na liczby i sprawdzenie, czy są posortowane malejąco
+          // Converting prices to numbers and checking if they are sorted in descending order
           const numericPrices = prices.map(parseFloat);
           expect(numericPrices).to.deep.equal(numericPrices.slice().sort().reverse());
         })
