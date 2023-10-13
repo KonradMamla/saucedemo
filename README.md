@@ -10,6 +10,7 @@ This repository contains end-to-end tests for the login functionality and invent
 - [Test Scenarios](#test-scenarios)
 - [Manual Test Scenarios](#manual-test-scenario)
 - [Project Structure](#project-structure)
+- [Bug Reports](#bug-reports)
 - [Authors](#authors)
 - [License](#license)
 
@@ -92,7 +93,24 @@ For detailed descriptions of manual test scenarios, please refer to the test cas
 - `/cypress/support`: Contains support files and custom commands.
 - `/cypress/fixtures`: Contains sample data for testing.
 - `/cypress/PageObjects`: Contains classes that represent various pages and components on application pages.
-- `/manual_test_cases`: Contains manual test scenarios
+- `/manual_test_cases`: Contains manual test scenarios.
+- `/bug_repoer`: Contains reported bugs.
+
+
+## Bug Reports
+
+This repository includes a folder named "bug_report" where you can submit bug reports or issues related to the project. If you encounter any problems, errors, or unexpected behavior while using the application, please follow the steps below to report a bug:
+
+1. Navigate to the "bug_report" folder.
+
+2. Check if the bug you want to report has already been submitted. If it has, consider adding additional details or comments to the existing report.
+
+3. If the bug is not listed, create a new bug report using the provided template.
+
+4. Fill out the bug report template with as much detail as possible, including steps to reproduce the issue, expected behavior, and actual behavior.
+
+5. Submit the bug report by creating a new issue in the repository.
+
 
 ## Authors
 

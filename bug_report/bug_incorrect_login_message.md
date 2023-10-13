@@ -16,7 +16,7 @@ The expected message is: "Epic sadface: Username and password are required."
 The current message is: "Epic sadface: Username is required."
 
 **Attachments:**
-![Incorrect login message](/cypress/screenshots/2023-10-13 14_51_06-Swag Labs.png)
+![Incorrect login message](../cypress/screenshots/incorrect_error_message.png)
 
 **Environment:** 
 Google Chrome version 99.0 on Windows 10.
