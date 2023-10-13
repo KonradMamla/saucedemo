@@ -38,7 +38,8 @@ To run the tests, follow these steps:
 
 The following test scenarios have been implemented:
 
-1. **Login Functionality:**
+1. **Login Functionality:** 
+
 \+ Verify that a user can successfully log in with valid credentials
 
 \+ Verify that a user cannot log in with invalid credentials. 
@@ -55,23 +56,23 @@ The following test scenarios have been implemented:
 
 
 2. **Product Page:**
-   - Verify correct display of all products on the home page. 
-   
+- Verify correct display of all products on the home page. 
+
 \+ Verify that the products display correctly when filtered by name and price. 
 
-   - Verify navigation to individual product pages and viewing product details.
-   - Verify adding products to the shopping cart.
-   - Verify removing products from the shopping cart.
-   - Verify the cart reflects the correct products and quantities.
+- Verify navigation to individual product pages and viewing product details.
+- Verify adding products to the shopping cart.
+- Verify removing products from the shopping cart.
+- Verify the cart reflects the correct products and quantities.
 
 3. **Checkout and Purchasing:**
-   - Verify navigation to the checkout page.
-   - Verify correct display of products and quantities on the checkout page.
-   - Verify entering shipping information.
-   - Verify entering payment information.
-   - Verify completing a successful purchase.
-   - Verify appropriate error messages for missing or incorrect information.
-   - Verify canceling a purchase and returning to the home page.
+- Verify navigation to the checkout page.
+- Verify correct display of products and quantities on the checkout page.
+- Verify entering shipping information.
+- Verify entering payment information.
+- Verify completing a successful purchase.
+- Verify appropriate error messages for missing or incorrect information.
+- Verify canceling a purchase and returning to the home page.
 
 ## Project Structure
 
