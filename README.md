@@ -8,6 +8,7 @@ This repository contains end-to-end tests for the login functionality and invent
 - [Getting Started](#getting-started)
 - [Running Tests](#running-tests)
 - [Test Scenarios](#test-scenarios)
+- [Manual Test Scenarios](#manual-test-scenario)
 - [Project Structure](#project-structure)
 - [Authors](#authors)
 - [License](#license)
@@ -74,6 +75,16 @@ The following test scenarios have been implemented:
 - Verify appropriate error messages for missing or incorrect information.
 - Verify canceling a purchase and returning to the home page.
 
+## Manual Test Scenarios
+
+Manual test scenarios have been documented for the following test areas:
+
+- **Login Functionality:** Manual tests cover user login scenarios, including valid and invalid login attempts, error messages, and user interactions.
+- **Product Page:** Additional manual test scenarios are available for testing the product page, such as product display and filtering.
+
+For detailed descriptions of manual test scenarios, please refer to the test case documentation in the project repository.
+
+
 ## Project Structure
 
 - `/cypress`: Contains Cypress configuration files and test scripts.
@@ -81,10 +92,11 @@ The following test scenarios have been implemented:
 - `/cypress/support`: Contains support files and custom commands.
 - `/cypress/fixtures`: Contains sample data for testing.
 - `/cypress/PageObjects`: Contains classes that represent various pages and components on application pages.
+- `/manual_test_cases`: Contains manual test scenarios
 
 ## Authors
 
-- Konrad Mamla
+- Konrad Mamla [LinkedIn](https://www.linkedin.com/in/konrad-mamla)
 
 ## License
 
