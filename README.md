@@ -1,7 +1,45 @@
-# Login Test Scenario:
+# Cypress Login And Inventory Page Tests
 
-### 1. Login functionality  
-\+ Verify that a user can successfully log in with valid credentials -> Should log in with valid credentials.
+This repository contains end-to-end tests for the login functionality and inventory page of the [SauceDemo](https://www.saucedemo.com/) website using the Cypress testing framework.
+
+## Table of Contents
+
+- [Prerequisites](#prerequisites)
+- [Getting Started](#getting-started)
+- [Running Tests](#running-tests)
+- [Test Scenarios](#test-scenarios)
+- [Project Structure](#project-structure)
+- [Authors](#authors)
+- [License](#license)
+
+## Prerequisites
+
+Before running the tests, ensure that you have the following prerequisites installed:
+
+- [Node.js](https://nodejs.org/): Make sure you have Node.js installed on your system.
+- Dependencies: Install project dependencies by running `npm install`.
+
+## Getting Started
+
+1. Clone this repository to your local machine.
+2. Navigate to the project directory in your terminal.
+3. Run `npm install` to install the required dependencies.
+
+## Running Tests
+
+To run the tests, follow these steps:
+
+1. Open your terminal.
+2. Navigate to the project directory.
+3. Run `npx cypress open`.
+4. In the Cypress test runner, click on the test you want to execute.
+
+## Test Scenarios
+
+The following test scenarios have been implemented:
+
+1. **Login Functionality:**
+\+ Verify that a user can successfully log in with valid credentials
 
 \+ Verify that a user cannot log in with invalid credentials. 
 
@@ -15,32 +53,38 @@
 
 \+ Verify that login form has correct validation.
 
-### 2. Product:
-Verify that all products are displayed correctly on the home page. 
 
+2. **Product Page:**
+   - Verify correct display of all products on the home page. 
+   
 \+ Verify that the products display correctly when filtered by name and price. 
 
-Verify that a user can navigate to individual product pages and view product details. 
+   - Verify navigation to individual product pages and viewing product details.
+   - Verify adding products to the shopping cart.
+   - Verify removing products from the shopping cart.
+   - Verify the cart reflects the correct products and quantities.
 
-Verify that a user can add products to their cart. 
+3. **Checkout and Purchasing:**
+   - Verify navigation to the checkout page.
+   - Verify correct display of products and quantities on the checkout page.
+   - Verify entering shipping information.
+   - Verify entering payment information.
+   - Verify completing a successful purchase.
+   - Verify appropriate error messages for missing or incorrect information.
+   - Verify canceling a purchase and returning to the home page.
 
-Verify that a user can remove products from their cart. 
+## Project Structure
 
-Verify that the cart reflects the correct products and quantities. 
+- `/cypress`: Contains Cypress configuration files and test scripts.
+- `/cypress/e2e`: Contains the test scenarios.
+- `/cypress/support`: Contains support files and custom commands.
+- `/cypress/fixtures`: Contains sample data for testing.
+- `/cypress/PageObjects`: Contains classes that represent various pages and components on application pages.
 
-### 3.  Checkout and purchasing:
-Verify that a user can navigate to the checkout page. 
+## Authors
 
-Verify that the correct products and quantities are displayed on the checkout page. 
+- Konrad Mamla
 
-Verify that a user can enter their shipping information. 
+## License
 
-Verify that a user can enter their payment information. 
-
-Verify that a user can complete a purchase successfully. 
-
-Verify that appropriate error messages are displayed if any information is missing or incorrect. 
-
-Verify that a user can cancel a purchase and return to the home page. 
-
-
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
